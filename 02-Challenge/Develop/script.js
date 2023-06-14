@@ -10,14 +10,12 @@ var generateBtn = document.querySelector("#generate");
   var passL =prompt("choose password length")
   alert("your password will be "+ passL + " characters long")
 
-  var capL =prompt ("Include Capital letters? Y/N")
-capL.toUpperCase
+  var capL =prompt ("Include Capital letters? Y/N").toUpperCase(); 
+ 
+  var numb= prompt ("Include numbers? Y/N").toUpperCase(); 
 
-  var numb= prompt ("Include numbers? Y/N")
-numb.toUpperCase
+  var specC = prompt ("include special characters? Y/N").toUpperCase(); 
 
-  var specC = prompt ("include special characters? Y/N")
-specC.toUpperCase
 
 function generatePassword(){
 
@@ -30,26 +28,24 @@ function generatePassword(){
     for (var x= 0; x < passL; x++) {
       RCL += letters [Math.floor(Math.random() * letters.length)];
     }
-    console.log (RCL);
   let RN =[]
     for (var y= 0; y < passL; y++){
       RN += numbers [Math.floor(Math.random() * numbers.length)]
       }
-      console.log (RN);
-      let RSC= []
-      for (var z= 0; z < passL; z++){
-        RSC += spec [Math.floor(Math.random() * spec.length)]
-        }
-        console.log(RSC)
+  let RSC= []
+    for (var z= 0; z < passL; z++){
+      RSC += spec [Math.floor(Math.random() * spec.length)]
+      }
 
-        if (capL === 'N' && numb === 'N' && specC === 'N') {
-          password = LCL
-          alert ("your password will only use lowercase letters")
-         }
-         else if ( capL === 'Y' && numb === 'N' && specC === 'N'){
-          password= LCL.concat(RCL)
-          console.log(password)
-          alert ("your password will use uppercase and lowercase letters")
+
+if (capL === 'N' && numb === 'N' && specC === 'N') {
+  password = LCL
+    alert ("your password will only use lowercase letters")
+ }
+else if ( capL === 'Y' && numb === 'N' && specC === 'N'){
+  password= LCL.concat(RCL)
+  console.log(password)
+  alert ("your password will use uppercase and lowercase letters")
          }
          else if ( capL === 'Y' && numb === 'Y' && specC ==='N'){
          password = LCL.concat(RCL,RN)
@@ -59,7 +55,7 @@ function generatePassword(){
          else if ( capL === 'N' && numb === 'Y' && specC ==='Y'){
         password = LCL.concat(RN,RSC)
         console.log (password)
-        alert ("your password will use letters and numbers")
+        alert ("your password will use numbers and special characters")
          }
          else if (capL === 'N' && numb === 'N' && specC === 'Y'){
         password = LCL.concat(RSC)
