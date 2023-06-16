@@ -1,22 +1,27 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
 let letters ="abcdefghijklmnopqustuvwxyz";
 let numbers ="12345abcdefghijklmnopqustuvwxyz67890";
 let spec = "!@#$abcdefghijklmnopqustuvwxyz%^&*";
 let all = "!@#$1234567890abcdefghijklmnopqustuvwxyz$%^&*"
+let password1 = "";
 
-  var passL =prompt("choose password length")
-  alert("your password will be "+ passL + " characters long")
 
-  var capL =prompt ("Capital letters? Y/N").toUpperCase(); 
- 
-  var num= prompt ("Include numbers? Y/N").toUpperCase(); 
-
-  var specC = prompt ("include special characters? Y/N").toUpperCase(); 
-
-console.log(capL,num,specC)
 function generatePassword(){
-  let password1 = "";
+  var passL =prompt("How long will your password be? Choose a number between 8-123")
+  if ( 8> passL){
+  alert ( "please choose a number between 8-128")
+    generatePassword()
+  }else if ( passL > 128) {
+  alert ( "please choose a number between 8-128")
+   generatePassword()
+  }
+  else{alert("your password will be "+ passL + " characters long")
+  var capL =prompt ("Capital letters? Y/N").toUpperCase(); 
+  var num= prompt ("Include numbers? Y/N").toUpperCase(); 
+  var specC = prompt ("include special characters? Y/N").toUpperCase();} 
+
   if (capL=== "N" && num === "N" && specC === "N"){
   for (var i =0; i < passL; i++) {
     password1  = password1 + letters.charAt(Math.floor(Math.random() * Math.floor(letters.length -1)));
@@ -44,24 +49,19 @@ function generatePassword(){
 }alert("Your password will contain all available characters")
 }else{
   alert( "invalid input") 
-}
-  console.log(password1)
-    }
-generatePassword();
-
-
-
+} console.log(password1);
+} 
 //Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  generatePassword();
+  let password = password1
+
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
-
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
 
 
-//return pwOptions
