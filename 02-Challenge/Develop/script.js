@@ -1,14 +1,15 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+//setting up variables
 let letters ="abcdefghijklmnopqustuvwxyz";
 let numbers ="12345abcdefghijklmnopqustuvwxyz67890";
 let spec = "!@#$abcdefghijklmnopqustuvwxyz%^&*";
 let all = "!@#$1234567890abcdefghijklmnopqustuvwxyz$%^&*"
 let password1 = "";
 
-
+//Generate password function
 function generatePassword(){
+  //Conditionals for password length/Caps/numbers/ and special character promts
   var passL =prompt("How long will your password be? Choose a number between 8-123")
   if ( 8> passL){
   alert ( "please choose a number between 8-128")
@@ -21,7 +22,7 @@ function generatePassword(){
   var capL =prompt ("Capital letters? Y/N").toUpperCase(); 
   var num= prompt ("Include numbers? Y/N").toUpperCase(); 
   var specC = prompt ("include special characters? Y/N").toUpperCase();} 
-
+// conditionals for user choice to prompts + "for" loops to pull random characcters from selected variable strings
   if (capL=== "N" && num === "N" && specC === "N"){
   for (var i =0; i < passL; i++) {
     password1  = password1 + letters.charAt(Math.floor(Math.random() * Math.floor(letters.length -1)));
@@ -49,7 +50,7 @@ function generatePassword(){
 }alert("Your password will contain all available characters")
 }else{
   alert( "invalid input") 
-} console.log(password1);
+} 
 } 
 //Write password to the #password input
 function writePassword() {
