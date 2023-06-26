@@ -17,6 +17,7 @@ function generatePassword(){
   var passL =prompt("How long will your password be? Choose a number between 8-128")
   if ( passL < 8 || passL > 128){
   alert ( "please choose a number between 8-128")
+   return;
   }
 // confirm boxes for the different variables
   var capL = confirm("Capital letters?")
